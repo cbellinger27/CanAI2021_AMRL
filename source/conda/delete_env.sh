@@ -1,0 +1,1 @@
+conda remove --name amrl_cai2023 --all
