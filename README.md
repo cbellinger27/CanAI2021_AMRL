@@ -40,6 +40,26 @@ Activate the environment:
 
     conda activate amrl_cai2021
 
+Install Junior Scientist Phase Change environment
+
+    pip install -e ./source/gyms/junior_scientist/
+
+Install OpenAI with observation costs wrapper environment
+
+    pip install -e ./source/gyms/openAIwithObsCostsWrapper/
+
+Install Markov Chain environment
+
+    pip install -e ./source/gyms/chain_env/
+
+Run Markov Chain Examples:
+
+    # Active measure RL method
+    python source/experiments/runAMRicGaussianEvenOddChain.py   
+    # Standard Tabular Q learning
+    python source/experiments/runQStandardGaussianEvenOddChain.py 
+    # Standard Dyna Q learning
+    python source/experiments/runDynaQStandardGaussianEvenOddChain.py
 
 ## Contact:
 
