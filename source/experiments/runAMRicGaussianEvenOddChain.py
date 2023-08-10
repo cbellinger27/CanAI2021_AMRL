@@ -12,6 +12,11 @@ import gym_ChainEnv
 from source.agents.actMeasureRic import tabularDynamicsModels, actMeasureRIC
 from source.agents.actMeasureTabularQLearning import actMeasureTabularQLearning
 
+from matplotlib import pyplot as plt
+import numpy as np
+
+
+plt.rcParams.update({'font.size': 22})
 
 trialsStpsToTermLst = []
 trialsObsToTermLst = []
@@ -128,11 +133,7 @@ ricStdObsToTermBs10 = ricStdObsToTerm
 ricMeanRewardBs10 = ricMeanReward
 ricStdRewardBs10 = ricStdReward
 
-from matplotlib import pyplot as plt
-import numpy as np
 
-
-plt.rcParams.update({'font.size': 22})
 
 
 plt.close()
@@ -149,7 +150,7 @@ plt.legend()
 plt.ylim(0, 300)
 plt.xlabel("Episodes")
 plt.ylabel("Mean Costed Return")
-plt.savefig("ricEvenOddNoise0ChainReturn.png")
+plt.savefig("results/gaussianEvenOddChain/ricEvenOddNoise0ChainReturn.png")
 plt.show()
 
 plt.close()
@@ -166,7 +167,7 @@ plt.legend()
 plt.xlabel("Episodes")
 plt.ylabel("Mean Steps")
 plt.ylim(0, 200)
-plt.savefig("ricEvenOddChainNoise0Steps.png")
+plt.savefig("results/gaussianEvenOddChain/ricEvenOddChainNoise0Steps.png")
 plt.show()
 
 
@@ -195,7 +196,7 @@ trailRewardsCount = np.ndarray(shape=(0,numEpisodes))
 for r in range(numTrials):
 	# time.sleep(5)
 	ric = actMeasureRIC(numActions, numStates,measureBias=measureBias,qInit=0.0)
-	state = env.reset()[0]
+	state, _ = env.reset()[0]
 	stpsToTerm = np.array([])
 	obsToTerm = np.array([])
 	rwdsAtTerm = np.array([])
@@ -229,7 +230,7 @@ for r in range(numTrials):
 				rwdsAtTerm = np.append(rwdsAtTerm, epReward)
 				obsPerState = np.concatenate([obsPerState, epObsPerState.reshape(1,numStates)])
 				actCounts = np.concatenate([actCounts, epActCounts.reshape(1,numActions)])
-				state = env.reset()
+				state, _ = env.reset()
 				# plter.close()
 				state = state[0]
 	trialsStpsToTerm = np.concatenate([trialsStpsToTerm, stpsToTerm.reshape(1,numEpisodes)])
@@ -305,7 +306,7 @@ plt.legend()
 plt.ylim(-100, 350)
 plt.xlabel("Episodes")
 plt.ylabel("Mean Costed Return")
-plt.savefig("ricEvenOddBeta01ChainReturn.png")
+plt.savefig("results/gaussianEvenOddChain/ricEvenOddBeta01ChainReturn.png")
 plt.show()
 
 
@@ -329,5 +330,5 @@ plt.legend()
 plt.xlabel("Episodes")
 plt.ylabel("Mean Steps")
 plt.ylim(0, 250)
-plt.savefig("ricEvenOddChainBeta01Steps.png")
+plt.savefig("results/gaussianEvenOddChain/ricEvenOddChainBeta01Steps.png")
 plt.show()

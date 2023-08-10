@@ -25,9 +25,6 @@ Within this context, we propose the model-based active measure RL agent. As show
 ![plot](figures/modelBasedActiveMeasureAgent.png)
 
 
-## Experiments: 
-
-
 ## Reproducibility: 
 
 To rerun the experiments:

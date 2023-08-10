@@ -14,7 +14,7 @@ import matplotlib
 import matplotlib.style 
 import numpy as np 
 from collections import defaultdict 
-from source.gym_experiments.agents.tabularQLearning import tabularQLearning
+from source.agents.tabularQLearning import tabularQLearning
 
 plt.rcParams.update({'font.size': 22})
 
